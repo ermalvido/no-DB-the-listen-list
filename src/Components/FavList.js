@@ -7,13 +7,13 @@ const FavList = props => {
             key={i}
             artist={artist}
             nameFn={props.nameFn}
-            deleteFn={props.deleteFn}/>
+            deleteFav={props.deleteFav}/>
     ))
 
     return (
         <div>
             <h1>Top 3</h1>
-            <div className='artist-flex'>
+            <div className='favorites-flex'>
                 {mappedArtist}
             </div>
         </div>

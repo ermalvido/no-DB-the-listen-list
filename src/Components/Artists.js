@@ -4,9 +4,11 @@ class Artists extends Component {
     handleAdd = () => {
         const {artist} = this.props;
         let newFav = {
+            id: artist.id,
             name: artist.name,
             img: artist.img
         }
+
         this.props.addFn(newFav);
         this.props.refreshFn();
     }

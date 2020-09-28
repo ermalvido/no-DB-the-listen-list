@@ -26,7 +26,7 @@ class ArtistFinder extends Component {
             <Artists
                 key={i}
                 artist={artist}
-                newFn={this.props.newFn}
+                addFn={this.props.addFn}
                 refreshFn={this.getArtists}/>
         ))
         return (

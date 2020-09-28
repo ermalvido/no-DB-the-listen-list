@@ -8,10 +8,13 @@ module.exports = {
     addFav: (req, res) => {
         const {artist} = req.body;
 
-        artist.id = id;
-        id++;
-
-        favorites.push(artist);
+        // artist.id = id;
+        const favCheck = favorites.filter(element => artist.id === element.id)
+        console.log(favCheck)
+        if(!favCheck[0]) {
+            favorites.push(artist);
+        }
+        // console.log(favorites)
         res.status(200).send(favorites);
     },
     updateFav: (req, res) => {
@@ -26,7 +29,7 @@ module.exports = {
         const {id} = req.params;
 
         const index = favorites.findIndex(element => element.id === +id);
-        favorites.findIndex.splice(index, 1);
+        favorites.splice(index, 1);
         res.status(200).send(favorites);
     }
 }

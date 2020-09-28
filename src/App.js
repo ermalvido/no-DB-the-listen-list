@@ -23,11 +23,16 @@ class App extends Component {
   }
 
   addFav(artist) {
-    axios.post('/api/favorites-artists', {artist: artist})
-    .then(res => {
-      this.setState({favorites: res.data})
-    })
-    .catch(err => console.log(err));
+    // let dupArtist = this.state.favorites.find(e => e.id === artist.id);
+    console.log(this.state.favorites, artist)
+    if(this.state.favorites.length < 3) {
+      axios.post('/api/favorites-artists', {artist: artist})
+      .then(res => {
+        this.setState({favorites: res.data})
+      })
+      .catch(err => console.log(err));
+    } 
+    return
   }
 
   updateFav = (id, newName) => {
@@ -57,7 +62,7 @@ class App extends Component {
         <FavList 
           favorites={this.state.favorites}
           nameFn={this.updateFav}
-          deleteFn={this.deleteFav}/>
+          deleteFav={this.deleteFav}/>
       </div>
     )
   }

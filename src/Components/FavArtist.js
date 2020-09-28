@@ -22,23 +22,23 @@ class FavArtist extends Component {
     render() {
         return (
             <div>
-                <img src={this.props.FavArtist.img} alt={this.props.FavArtist.name}/>
+                <img src={this.props.artist.img} alt={this.props.artist.name}/>
                 {this.state.isEditing
                 ? (
                     <div>
                         <input
                             value={this.state.nameInput}
                             onChange={e => this.handleInput(e.target.value)}/>
-                        <button onClick={() => this.handleEdit(this.props.FavArtist.id)}>Submit</button>
+                        <button onClick={() => this.handleEdit(this.props.artist.id)}>Submit</button>
                     </div>
                 )
                 : (
                     <div>
-                        <p>{this.props.FavArtist.name}</p>
+                        <p>{this.props.artist.name}</p>
                         <button onClick={this.handleToggle}>Edit Name</button>
                     </div>
                 )}
-                <button onClick={() => this.props.deleteFn(this.props.FavArtist.id)}>Delete</button>
+                <button onClick={() => this.props.deleteFav(this.props.artist.id)}>Remove</button>
             </div>
         )
     }
